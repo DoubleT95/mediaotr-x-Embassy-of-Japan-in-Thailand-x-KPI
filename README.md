@@ -4,7 +4,7 @@
 
 | ไฟล์ | รายละเอียด |
 | --- | --- |
-| `Beyond140_Concept_Proposal.pdf` | เดคนำเสนอ 6 หน้า (16:9) |
+| `Beyond140_Concept_Proposal.pdf` | เดคนำเสนอ 7 หน้า (16:9) — รูปแบบงาน 2 แบบ |
 | `deck/beyond140.html` | ต้นฉบับเดค |
 | `deck/assets/` | โลโก้ทุกองค์กร (140 ปี, สถานทูต, KPI, WBC, TopForm, A-List, mediator) และภาพผู้เสนอ |
 
