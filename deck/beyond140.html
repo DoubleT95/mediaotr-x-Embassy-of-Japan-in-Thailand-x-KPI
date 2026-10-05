@@ -86,12 +86,15 @@
   .gap .n { font: 200 50px/1 var(--th); color: var(--gold); }
   .gap .t { font: 700 23px/1.35 var(--th); color: var(--black); }
   .gap .d { margin-top: 4px; font: 400 16px/1.5 var(--th); color: var(--g1); }
-  .natl { position: absolute; left: 64px; right: 64px; bottom: 44px; height: 84px; background: var(--black); color: #fff; display: flex; align-items: center; gap: 22px; padding: 0 26px; }
+  .natl { position: absolute; left: 64px; right: 64px; bottom: 44px; height: 92px; background: var(--black); color: #fff; display: flex; align-items: center; gap: 22px; padding: 0 26px; }
   .natl .k { font: 700 18px/1.3 var(--th); white-space: nowrap; }
   .natl .k span { display: block; font: 400 13.5px/1.4 var(--th); color: #BDBDBD; margin-top: 3px; }
   .natl .k small { display: block; font: 600 10.5px/1 var(--th); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
-  .natl .chips { display: flex; gap: 10px; flex-wrap: nowrap; margin-left: auto; }
-  .natl .chips span { border: 1px solid rgba(184,145,63,.8); color: #fff; padding: 7px 14px; border-radius: 99px; font: 500 14px/1 var(--th); white-space: nowrap; }
+  .natl .chips { display: grid; grid-template-columns: repeat(4, 118px); gap: 6px; margin-left: auto; }
+  .natl .chips span { background: var(--gold); color: #111; padding: 11px 10px 10px; font: 800 15px/1.25 var(--th); text-align: left; border-left: 4px solid #fff; }
+  .natl .chips span i { display: block; font: 300 12px/1 var(--th); font-style: normal; color: #3A2E12; margin-bottom: 5px; }
+  .natl .flags { display: flex; gap: 8px; }
+  .natl .flags svg { display: block; width: 54px; height: 36px; outline: 1px solid rgba(255,255,255,.35); }
 
   /* ---------- 3 · define ---------- */
   .df { display: grid; grid-template-columns: 1fr 420px; gap: 44px; margin-top: 24px; }
@@ -311,8 +314,9 @@
     </div>
   </div>
   <div class="natl">
+    <div class="flags"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#A51931"/><rect y="3.33" width="30" height="13.34" fill="#F4F5F8"/><rect y="6.67" width="30" height="6.66" fill="#2D2A4A"/></svg><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#FFFFFF"/><circle cx="15" cy="10" r="6" fill="#BC002D"/></svg></div>
     <div class="k"><small>National Agenda</small>วาระระดับชาติ ของทั้งสองประเทศ<span>ลงทุนในคนรุ่นใหม่วันนี้ คือความสัมพันธ์ที่แข็งแรงในอีก 10–20 ปีข้างหน้า</span></div>
-    <div class="chips"><span>ผลักดันคนรุ่นใหม่</span><span>สร้างโอกาส</span><span>สร้างเครือข่าย</span><span>ร่วมมือต่อเนื่อง</span></div>
+    <div class="chips"><span><i>01</i>ผลักดัน<br>คนรุ่นใหม่</span><span><i>02</i>สร้าง<br>โอกาส</span><span><i>03</i>สร้าง<br>เครือข่าย</span><span><i>04</i>ร่วมมือ<br>ต่อเนื่อง</span></div>
   </div>
   <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ข้อมูลวาระที่ผ่านมา: รายงานวิจัยชุดครบรอบ 140 ปี เล่ม 2 (mediator, 2026)</span><span>02</span></div>
 </section>
