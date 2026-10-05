@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Beyond 140 — Concept Proposal</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --paper: #FAF8F3;
+    --card: #F3EFE6;
+    --ink: #151820;
+    --ink-2: #474C58;
+    --ink-3: #868B96;
+    --rule: #E2DCCF;
+    --gold: #A4824A;
+    --gold-soft: #D8C6A1;
+    --gold-pale: #EFE6D3;
+    --red: #A8262F;
+    --serif-th: 'Noto Serif Thai', serif;
+    --sans-th: 'Sarabun', sans-serif;
+    --num: 'Noto Serif Display', serif;
+    --jp: 'Noto Serif JP', serif;
+  }
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #777; }
+  body { font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; font-family: var(--sans-th); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide {
+    width: 1280px; height: 720px; position: relative; overflow: hidden;
+    background: var(--paper); page-break-after: always; break-after: page;
+    padding: 46px 64px 0;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+
+  /* ---------- shared ---------- */
+  .kicker { font: 600 13px/1 var(--sans-th); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .kicker .th { letter-spacing: .02em; text-transform: none; font-weight: 600; }
+  h2.title { font: 600 35px/1.38 var(--serif-th); color: var(--ink); margin-top: 12px; letter-spacing: -.005em; }
+  h2.title em { font-style: normal; color: var(--gold); }
+  .lead { margin-top: 12px; padding-left: 16px; border-left: 2px solid var(--gold); font: 400 17px/1.6 var(--sans-th); color: var(--ink-2); max-width: 1000px; }
+  .lead b { color: var(--ink); font-weight: 600; }
+
+  .topbar { display: flex; justify-content: space-between; align-items: flex-start; }
+  .fiveD { display: flex; gap: 6px; align-items: center; font: 500 11.5px/1 var(--sans-th); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+  .fiveD span { padding: 6px 10px; border: 1px solid var(--rule); border-radius: 99px; }
+  .fiveD span.done { color: var(--ink-2); border-color: var(--gold-soft); }
+  .fiveD span.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fiveD span.next { border-style: dashed; }
+  .fiveD i { width: 10px; height: 1px; background: var(--rule); }
+
+  .foot {
+    position: absolute; left: 64px; right: 64px; bottom: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    font: 500 11px/1 var(--sans-th); letter-spacing: .1em; color: var(--ink-3); text-transform: uppercase;
+  }
+  .foot .l { display: flex; align-items: center; gap: 12px; }
+  .foot .l img { height: 13px; opacity: .85; }
+  .foot .l b { width: 1px; height: 12px; background: var(--rule); }
+
+  .nw { white-space: nowrap; }
+  .src { font: 400 11.5px/1.4 var(--sans-th); color: var(--ink-3); text-transform: none; letter-spacing: .02em; }
+
+  .ph {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    border: 1.5px dashed var(--gold-soft); border-radius: 10px; color: var(--gold);
+    font: 500 11px/1.35 var(--sans-th); letter-spacing: .02em; background: rgba(255,255,255,.5);
+  }
+
+  /* ---------- 1 · cover ---------- */
+  .cover { padding: 0; }
+  .cover .top { position: absolute; top: 44px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; }
+  .cover .presented { display: flex; align-items: center; gap: 18px; }
+  .cover .presented .lbl { font: 500 12px/1.3 var(--sans-th); color: var(--ink-3); text-align: right; letter-spacing: .04em; }
+  .cover .presented img { height: 72px; }
+  .cover .presented .ph { width: 72px; height: 72px; border-radius: 50%; }
+  .cover .main { position: absolute; top: 168px; left: 64px; right: 64px; display: grid; grid-template-columns: 1fr 400px; gap: 40px; }
+  .cover .eyebrow { font: 500 15px/1.5 var(--sans-th); color: var(--gold); letter-spacing: .02em; }
+  .cover h1 { margin-top: 16px; font: 700 54px/1.32 var(--serif-th); color: var(--ink); letter-spacing: -.01em; }
+  .cover h1 span { display: block; font-weight: 500; font-size: 40px; color: var(--ink-2); margin-top: 4px; }
+  .cover .jp { margin-top: 18px; font: 500 20px/1.5 var(--jp); color: var(--ink-2); letter-spacing: .08em; }
+  .cover .sub { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--rule); font: 400 18px/1.55 var(--sans-th); color: var(--ink-2); max-width: 640px; }
+  .cover .sub b { font-weight: 700; color: var(--ink); }
+  .cover .visual { position: relative; height: 380px; }
+  .cover .big140 { position: absolute; right: -6px; top: -38px; font: 500 236px/1 var(--num); color: var(--gold); letter-spacing: -.02em; }
+  .cover .tl { position: absolute; left: 6px; right: 0; top: 262px; }
+  .cover .tl .line { position: absolute; top: 9px; left: 8px; right: 8px; height: 1.5px; background: linear-gradient(90deg, var(--ink) 0 60%, transparent 60%); }
+  .cover .tl .line::after { content: ""; position: absolute; left: 60%; right: 0; top: 0; border-top: 1.5px dashed var(--gold); }
+  .cover .tl .pts { position: relative; display: flex; justify-content: space-between; }
+  .cover .tl .pt { display: flex; flex-direction: column; align-items: center; width: 110px; }
+  .cover .tl .pt:first-child { align-items: flex-start; }
+  .cover .tl .pt:last-child { align-items: flex-end; }
+  .cover .tl .dot { width: 20px; height: 20px; border-radius: 50%; background: var(--ink); border: 4px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
+  .cover .tl .pt.now .dot { background: var(--gold); box-shadow: 0 0 0 1.5px var(--gold); width: 24px; height: 24px; margin-top: -2px; }
+  .cover .tl .pt.next .dot { background: var(--paper); box-shadow: 0 0 0 1.5px var(--gold); }
+  .cover .tl .yr { margin-top: 10px; font: 600 24px/1 var(--num); color: var(--ink); }
+  .cover .tl .pt.now .yr { color: var(--gold); }
+  .cover .tl .pt.next .yr { color: var(--ink-3); }
+  .cover .tl .cap { margin-top: 4px; font: 400 12.5px/1.35 var(--sans-th); color: var(--ink-3); }
+  .cover .tl .pt:first-child .cap { text-align: left; }
+  .cover .tl .pt:last-child .cap { text-align: right; }
+  .cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 104px; background: var(--ink); color: #fff; display: grid; grid-template-columns: 1.25fr 1.25fr .6fr; align-items: center; padding: 0 64px; gap: 32px; }
+  .cover .band .k { font: 600 13px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 9px; }
+  .cover .band .v { font: 400 15px/1.45 var(--sans-th); color: #E9E7E1; }
+  .cover .band .v b { font-weight: 600; color: #fff; }
+  .cover .band .r { justify-self: end; text-align: right; }
+  .cover .band .r img { height: 22px; display: block; margin-left: auto; }
+  .cover .band .r .d { margin-top: 10px; font: 400 13px/1 var(--sans-th); color: var(--gold-soft); letter-spacing: .04em; }
+
+  /* ---------- 2 · discover ---------- */
+  .disc { display: grid; grid-template-columns: 372px 1fr; gap: 44px; margin-top: 26px; }
+  .tline h4, .gaps h4, .outc h4 { font: 600 14px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
+  .tline ol { list-style: none; position: relative; }
+  .tline ol::before { content: ""; position: absolute; left: 70px; top: 8px; bottom: 10px; width: 1px; background: var(--rule); }
+  .tline li { display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding-bottom: 13px; position: relative; }
+  .tline li::before { content: ""; position: absolute; left: 66px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink-3); }
+  .tline li.first::before { background: var(--ink); border-color: var(--ink); }
+  .tline li.now::before { background: var(--gold); border-color: var(--gold); width: 11px; height: 11px; left: 65px; top: 6px; }
+  .tline .y { font: 600 20px/1 var(--num); color: var(--ink); text-align: left; }
+  .tline li.now .y { color: var(--gold); }
+  .tline .t { font: 600 15px/1.35 var(--sans-th); color: var(--ink); padding-left: 18px; }
+  .tline .t small { display: block; font: 400 13.5px/1.45 var(--sans-th); color: var(--ink-2); margin-top: 2px; }
+  .tline li.now .t { color: var(--gold); }
+  .gaps .g { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 15px 0; border-top: 1px solid var(--rule); }
+  .gaps .g:last-of-type { border-bottom: 1px solid var(--rule); }
+  .gaps .n { font: 500 40px/1 var(--num); color: var(--gold); }
+  .gaps .gt { font: 600 19px/1.4 var(--serif-th); color: var(--ink); }
+  .gaps .gd { font: 400 15px/1.55 var(--sans-th); color: var(--ink-2); margin-top: 4px; }
+  .question { margin-top: 16px; display: flex; align-items: center; gap: 16px; }
+  .question .q { font: 600 20px/1.4 var(--serif-th); color: var(--ink); }
+  .question .q em { font-style: normal; color: var(--red); }
+  .question::before { content: ""; width: 28px; height: 2px; background: var(--red); flex: none; }
+
+  /* ---------- 3 · define ---------- */
+  .def { display: grid; grid-template-columns: 1fr 420px; gap: 40px; margin-top: 26px; }
+  .shift { display: grid; grid-template-columns: 40px 168px 28px 1fr; align-items: center; gap: 14px; padding: 21px 0; border-top: 1px solid var(--rule); }
+  .shift:last-of-type { border-bottom: 1px solid var(--rule); }
+  .shift .n { font: 500 34px/1 var(--num); color: var(--gold); }
+  .shift .from { font: 500 15px/1.45 var(--sans-th); color: var(--ink-3); }
+  .shift .from s { text-decoration: none; display: block; font: 600 20px/1.3 var(--serif-th); color: var(--ink-3); }
+  .shift .arr { color: var(--gold); font: 400 24px/1 var(--sans-th); text-align: center; }
+  .shift .to b { display: block; font: 600 21px/1.35 var(--serif-th); color: var(--ink); }
+  .shift .to span { display: block; font: 400 14.5px/1.5 var(--sans-th); color: var(--ink-2); margin-top: 3px; }
+  .outc { background: var(--ink); color: #fff; border-radius: 4px; padding: 22px 26px 18px; align-self: start; }
+  .outc h4 { color: var(--gold-soft); }
+  .outc .o { padding: 10px 0; border-top: 1px solid rgba(255,255,255,.14); }
+  .outc .o:first-of-type { border-top: 0; padding-top: 2px; }
+  .outc .o b { display: block; font: 600 17px/1.4 var(--serif-th); color: #fff; }
+  .outc .o b i { font-style: normal; color: var(--gold-soft); font-family: var(--num); font-size: 19px; margin-right: 8px; }
+  .outc .o span { display: block; font: 400 14px/1.5 var(--sans-th); color: #C9C7C1; margin-top: 3px; }
+  .outc .to150 { margin-top: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); display: flex; align-items: baseline; gap: 10px; font: 400 13.5px/1.4 var(--sans-th); color: #C9C7C1; }
+  .outc .to150 b { font: 500 26px/1 var(--num); color: var(--gold-soft); white-space: nowrap; }
+
+  /* ---------- 4 · people ---------- */
+  .axis { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; position: relative; }
+  .axis .end { position: absolute; top: -2px; font: 600 12px/1 var(--sans-th); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+  .people { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto auto auto 1fr; column-gap: 16px; margin-top: 22px; }
+  .pc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 18px 20px 16px; display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; position: relative; }
+  .pc.bridge { border: 1.5px solid var(--gold); background: #FFFDF8; }
+  .pc .side { font: 600 11.5px/1 var(--sans-th); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  .pc .side .th { letter-spacing: .02em; text-transform: none; }
+  .pc .logo { height: 72px; margin: 12px 0 10px; display: flex; align-items: center; justify-content: flex-start; }
+  .pc .logo img { max-height: 72px; max-width: 100%; object-fit: contain; }
+  .pc .name { font: 700 21px/1.3 var(--serif-th); color: var(--ink); }
+  .pc .who { font: 500 14.5px/1.5 var(--sans-th); color: var(--ink-2); margin-top: 4px; }
+  .pc .role { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 14px/1.55 var(--sans-th); color: var(--ink-2); }
+  .pc .role b { display: block; font: 600 13px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+  .pc .flag { position: absolute; top: -11px; right: 16px; background: var(--gold); color: #fff; font: 600 11px/1 var(--sans-th); padding: 5px 9px; border-radius: 99px; letter-spacing: .04em; }
+  .spectrum { margin-top: 20px; height: 18px; position: relative; }
+  .spectrum .bar { position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: linear-gradient(90deg, var(--red), var(--gold) 50%, #22346B); opacity: .8; }
+  .spectrum span { position: absolute; top: -1px; background: var(--paper); padding: 0 12px; font: 600 14px/20px var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--ink-2); }
+  .format { margin-top: 18px; display: flex; gap: 28px; align-items: center; font: 400 15px/1.5 var(--sans-th); color: var(--ink-2); }
+  .format b { color: var(--ink); font-weight: 600; }
+  .format .k { font: 600 14px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+
+  /* ---------- 5 · format & venue ---------- */
+  .fv { display: grid; grid-template-columns: 1fr 450px; gap: 36px; margin-top: 24px; }
+  .sess { display: grid; grid-template-columns: 128px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--rule); }
+  .sess:last-of-type { border-bottom: 1px solid var(--rule); }
+  .sess .when b { display: block; font: 700 21px/1.3 var(--serif-th); color: var(--ink); }
+  .sess .when span { display: block; font: 600 11.5px/1 var(--sans-th); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-top: 7px; }
+  .sess .when i { display: block; font-style: normal; font: 500 19px/1 var(--num); color: var(--ink-3); margin-top: 9px; }
+  .sess ul { list-style: none; }
+  .sess li { position: relative; padding-left: 18px; font: 400 15px/1.5 var(--sans-th); color: var(--ink-2); margin-bottom: 5px; }
+  .sess li:last-child { margin-bottom: 0; }
+  .sess li::before { content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border: 1.5px solid var(--gold); transform: rotate(45deg); }
+  .sess li b { color: var(--ink); font-weight: 600; }
+  .facts { display: flex; gap: 26px; margin-top: 16px; }
+  .facts div { font: 400 14px/1.45 var(--sans-th); color: var(--ink-2); }
+  .facts div b { display: block; font: 600 13px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+  .venue { background: var(--ink); color: #fff; border-radius: 4px; padding: 26px 30px 24px; position: relative; overflow: hidden; }
+  .venue::after { content: ""; position: absolute; right: -70px; top: -70px; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(216,198,161,.25); box-shadow: 0 0 0 26px rgba(216,198,161,.05); }
+  .venue .k { font: 600 12px/1 var(--sans-th); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); }
+  .venue .k .th, .kicker .th { letter-spacing: .01em; }
+  .venue h3 { margin-top: 12px; font: 600 24px/1.4 var(--serif-th); color: #fff; }
+  .venue p.intro { margin-top: 8px; font: 400 14.5px/1.6 var(--sans-th); color: #CFCCC5; }
+  .venue .crit { margin-top: 12px; }
+  .venue .c { display: grid; grid-template-columns: 22px 1fr; gap: 8px; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.12); }
+  .venue .c i { font-style: normal; color: var(--gold-soft); font-size: 12px; line-height: 22px; }
+  .venue .c b { font: 600 15px/1.45 var(--sans-th); color: #fff; }
+  .venue .c span { font: 400 14px/1.45 var(--sans-th); color: #C9C7C1; }
+  .venue blockquote { margin-top: 12px; padding-top: 14px; border-top: 1px solid rgba(216,198,161,.4); font: 500 16px/1.6 var(--serif-th); color: var(--gold-soft); }
+
+  /* ---------- 6 · partners & proposer ---------- */
+  .pp { display: grid; grid-template-columns: 352px 1fr; gap: 28px; margin-top: 16px; }
+  .prop { background: var(--ink); color: #fff; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+  .prop .ph-wrap { height: 188px; background: #5d6672; position: relative; }
+  .prop .ph-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
+  .prop .ph-wrap .k { position: absolute; left: 20px; bottom: 14px; background: var(--ink); color: var(--gold-soft); font: 600 13px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; padding: 6px 9px; }
+  .prop .body { padding: 16px 22px 18px; }
+  .prop .nm { font: 600 25px/1.2 var(--num); font-family: var(--num); letter-spacing: .01em; }
+  .prop ul { list-style: none; margin-top: 8px; }
+  .prop li { font: 400 14px/1.5 var(--sans-th); color: #D4D2CB; padding-left: 14px; position: relative; margin-bottom: 3px; }
+  .prop li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; background: var(--gold-soft); transform: rotate(45deg); }
+  .prop li b { color: #fff; font-weight: 600; }
+  .prop .xp { margin-top: 12px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 12px; font: 600 13px/1 var(--sans-th); color: var(--gold-soft); }
+  .prop .yrs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 10px; }
+  .prop .yrs div { font: 400 12.5px/1.35 var(--sans-th); color: #C9C7C1; }
+  .prop .yrs b { display: block; font: 500 34px/1 var(--num); color: var(--gold-soft); }
+  .prop .yrs b small { font: 400 15px/1 var(--sans-th); margin-left: 4px; color: #C9C7C1; }
+  .orgs h4 { font: 600 14px/1 var(--sans-th); letter-spacing: .01em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; display: flex; justify-content: space-between; }
+  .orgs .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .oc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 12px 16px 12px; }
+  .oc .lg { height: 50px; display: flex; align-items: center; }
+  .oc .lg img { max-height: 50px; max-width: 168px; object-fit: contain; }
+  .oc .lg .ph { width: 50px; height: 50px; border-radius: 50%; }
+  .oc .tag { display: inline-block; margin-top: 8px; font: 600 12px/1 var(--sans-th); letter-spacing: 0; color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 99px; padding: 4px 8px; }
+  .oc .on { margin-top: 7px; font: 700 15.5px/1.35 var(--sans-th); color: var(--ink); }
+  .oc .od { margin-top: 2px; font: 400 13px/1.45 var(--sans-th); color: var(--ink-2); }
+  .ctaband { position: absolute; left: 0; right: 0; bottom: 0; height: 92px; background: var(--ink); color: #fff; padding: 0 64px; display: grid; grid-template-columns: 200px 1fr 1fr 1fr 150px; gap: 22px; align-items: center; }
+  .ctaband .k { font: 600 12px/1.5 var(--sans-th); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); }
+  .ctaband .k small { display: block; font: 600 17px/1.35 var(--serif-th); color: #fff; letter-spacing: 0; text-transform: none; margin-top: 3px; }
+  .ctaband .s { display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: start; }
+  .ctaband .s i { font: 500 28px/1 var(--num); font-style: normal; color: var(--gold-soft); }
+  .ctaband .s span { font: 400 14px/1.45 var(--sans-th); color: #DDDBD4; }
+  .ctaband .s span b { display: block; font-weight: 600; color: #fff; }
+  .ctaband .m { justify-self: end; text-align: right; }
+  .ctaband .m img { height: 20px; }
+  .ctaband .m div { font: 400 12px/1.3 var(--sans-th); color: var(--gold-soft); margin-top: 7px; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · COVER ============ -->
+<section class="slide cover">
+  <div class="top">
+    <div class="kicker">Concept Proposal · ข้อเสนอแนวคิด</div>
+    <div class="presented">
+      <div class="lbl">เสนอต่อ</div>
+      <div class="ph" data-slot="logo-140">โลโก้<br>140 ปี</div>
+      <img src="assets/embassy.png" alt="Embassy of Japan in Thailand">
+      <div class="ph" data-slot="logo-kpi">โลโก้<br>KPI</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div>
+      <p class="eyebrow">วาระครบรอบ 140 ปี ความสัมพันธ์ทางการทูตไทย–ญี่ปุ่น · 1887–2027</p>
+      <h1>140 ปี และหลังจากนี้<span>เราจะทำอะไรเพื่อไทย–ญี่ปุ่นต่อไป</span></h1>
+      <p class="jp">日タイ修好140周年、そしてその先へ。</p>
+      <p class="sub"><b>Beyond 140</b> — เวทีเครือข่ายผู้นำรุ่นใหม่ไทย–ญี่ปุ่น เพื่อความร่วมมือที่ยั่งยืน จากวาระ 140 ปี สู่อีกหนึ่งทศวรรษข้างหน้า</p>
+    </div>
+    <div class="visual">
+      <div class="big140">140</div>
+      <div class="tl">
+        <div class="line"></div>
+        <div class="pts">
+          <div class="pt"><div class="dot"></div><div class="yr">1887</div><div class="cap">ปฏิญญาทางไมตรี<br>และการพาณิชย์</div></div>
+          <div class="pt now"><div class="dot"></div><div class="yr">2027</div><div class="cap">ครบรอบ 140 ปี</div></div>
+          <div class="pt next"><div class="dot"></div><div class="yr">2037</div><div class="cap">สู่ 150 ปี<br>ด้วยกัน</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div>
+      <div class="k">เสนอต่อ</div>
+      <div class="v"><b>สถานเอกอัครราชทูตญี่ปุ่นประจำประเทศไทย</b><br><b>สถาบันพระปกเกล้า</b></div>
+    </div>
+    <div>
+      <div class="k">ผู้เสนอแนวคิด</div>
+      <div class="v"><b>Takahiro Tatsumi</b> · ศิษย์เก่าหลักสูตร A-List รุ่นที่ 1<br>mediator Co., Ltd.</div>
+    </div>
+    <div class="r">
+      <img src="assets/mediator-white.svg" alt="mediator">
+      <div class="d">ตุลาคม 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · DISCOVER ============ -->
+<section class="slide">
+  <div class="topbar">
+    <div class="kicker">01 · Discover — <span class="th">ค้นพบช่องว่าง</span></div>
+    <div class="fiveD"><span class="on">Discover</span><i></i><span>Define</span><i></i><span>Design</span><i></i><span class="next">Develop</span><i></i><span class="next">Deliver</span></div>
+  </div>
+  <h2 class="title">มิตรภาพ 140 ปีแน่นแฟ้นในระดับรัฐ<br>แต่ <em>“สะพานสู่คนรุ่นต่อไป”</em> ยังไม่ต่อเนื่อง</h2>
+  <p class="lead">ความสัมพันธ์ไทย–ญี่ปุ่นหยั่งรากลึกทั้งในระดับรัฐ เศรษฐกิจ และวิถีชีวิต แต่ <b>ผู้นำรุ่นใหม่</b> ซึ่งจะกำหนดทิศทางของทั้งสองประเทศในทศวรรษข้างหน้า ยังขาดพื้นที่พบกันอย่างต่อเนื่อง</p>
+
+  <div class="disc">
+    <div class="tline">
+      <h4>วาระสำคัญที่ผ่านมา</h4>
+      <ol>
+        <li class="first"><div class="y">1887</div><div class="t">ปฏิญญาว่าด้วยทางไมตรีและการพาณิชย์<small>จุดเริ่มต้นความสัมพันธ์ทางการทูต</small></div></li>
+        <li><div class="y">2007</div><div class="t">ครบรอบ 120 ปี<small>กว่า 340 กิจกรรม ครอบคลุมหลากหลายสาขา</small></div></li>
+        <li><div class="y">2017</div><div class="t">ครบรอบ 130 ปี<small>ขยายสู่วัฒนธรรมร่วมสมัยและกีฬา</small></div></li>
+        <li><div class="y">2022</div><div class="t">ครบรอบ 135 ปี<small>ฟื้นตัวหลังโควิด สู่รูปแบบไฮบริด</small></div></li>
+        <li class="now"><div class="y">2027</div><div class="t">ครบรอบ 140 ปี<small>โอกาสที่จะสร้างสิ่งที่ “คงอยู่” ต่อไป</small></div></li>
+      </ol>
+    </div>
+    <div class="gaps">
+      <h4>3 ช่องว่างที่ค้นพบ</h4>
+      <div class="g"><div class="n">1</div><div><div class="gt">กิจกรรมเป็น “จุด” ที่ยังไม่ต่อเป็น “เส้น”</div><div class="gd">งานเฉลิมฉลองจำนวนมากจบลงภายในปีนั้น สารหลักกระจัดกระจาย และไม่ถูกส่งต่อสู่วาระถัดไป</div></div></div>
+      <div class="g"><div class="n">2</div><div><div class="gt">ผู้เข้าร่วมเป็น “ผู้ชม” มากกว่า “ผู้ร่วมสร้าง”</div><div class="gd">การสื่อสารส่วนใหญ่เป็นทางเดียว และผู้นำรุ่นใหม่ภาคการเมืองและภาคพลเมืองของไทย ยังมีพื้นที่ร่วมกับ<span class="nw">ผู้นำญี่ปุ่นรุ่นใหม่</span>ไม่มากนัก</div></div></div>
+      <div class="g"><div class="n">3</div><div><div class="gt">สายสัมพันธ์ “หมุนเวียน” ออกไปพร้อมวาระประจำการ</div><div class="gd">ผู้บริหารชาวญี่ปุ่นในไทยประจำการตามวาระเพียงไม่กี่ปี เมื่อกลับประเทศ สายสัมพันธ์ที่สร้างไว้มักต้องเริ่มใหม่</div></div></div>
+      <div class="question"><div class="q">เมื่อการเฉลิมฉลองจบลง — <em>อะไรจะยังคงอยู่?</em></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="l"><img src="assets/mediator-black.svg" alt=""><b></b><span>Beyond 140 · Concept Proposal</span></div>
+    <div class="src">ที่มาข้อมูลวาระที่ผ่านมา: รายงานวิจัยชุดครบรอบ 140 ปี ความสัมพันธ์ไทย–ญี่ปุ่น เล่ม 2 (mediator, ก.ย. 2026) &nbsp;·&nbsp; 02 / 06</div>
+  </div>
+</section>
+
+<!-- ============ 3 · DEFINE ============ -->
+<section class="slide">
+  <div class="topbar">
+    <div class="kicker">02 · Define — <span class="th">กำหนดเป้าหมายร่วม</span></div>
+    <div class="fiveD"><span class="done">Discover</span><i></i><span class="on">Define</span><i></i><span>Design</span><i></i><span class="next">Develop</span><i></i><span class="next">Deliver</span></div>
+  </div>
+  <h2 class="title">จากงานเฉลิมฉลองหนึ่งวัน<br>สู่ <em>เครือข่าย</em> ที่เดินต่อไปถึงวาระ 150 ปี</h2>
+  <p class="lead"><b>Beyond 140</b> ไม่ได้ถูกออกแบบให้จบในวันงาน แต่เป็นจุดเริ่มต้นของเครือข่ายผู้นำรุ่นใหม่ไทย–ญี่ปุ่น ที่ได้พบกัน ร่วมคิด และส่งต่อกันได้จริง — เปลี่ยนการ <b>รำลึกอดีต</b> ให้เป็นการ <b>ร่วมสร้างอนาคต</b></p>
+
+  <div class="def">
+    <div>
+      <div class="shift"><div class="n">1</div><div class="from"><s>จาก “จุด”</s>กิจกรรมครั้งเดียว</div><div class="arr">→</div><div class="to"><b>สู่ “เส้น”</b><span>เครือข่ายที่พบกันต่อเนื่องทุกปี และมีเจ้าภาพร่วมดูแล</span></div></div>
+      <div class="shift"><div class="n">2</div><div class="from"><s>จาก “ผู้ชม”</s>รับฟังทางเดียว</div><div class="arr">→</div><div class="to"><b>สู่ “ผู้ร่วมสร้าง”</b><span>ผู้นำทั้ง 4 กลุ่มร่วมคิด ร่วมเสนอ และร่วมรับผิดชอบผลลัพธ์</span></div></div>
+      <div class="shift"><div class="n">3</div><div class="from"><s>จาก “บุคคล”</s>ผูกกับคนเพียงไม่กี่คน</div><div class="arr">→</div><div class="to"><b>สู่ “ระบบ”</b><span>มีผู้เชื่อมโยงระยะยาว ความสัมพันธ์จึงไม่ขาดช่วงเมื่อมีการหมุนเวียน</span></div></div>
+    </div>
+    <div class="outc">
+      <h4>ผลลัพธ์ที่เราจะสร้างร่วมกัน</h4>
+      <div class="o"><b><i>01</i>เวทีผู้นำรุ่นใหม่ 4 กลุ่ม</b><span>เสวนาและพบปะอย่างสมดุล ทั้งฝั่งไทยและญี่ปุ่น</span></div>
+      <div class="o"><b><i>02</i>“140+ Commitments”</b><span>พันธะร่วมที่แต่ละกลุ่มจะลงมือทำต่อหลังวันงาน</span></div>
+      <div class="o"><b><i>03</i>เครือข่าย Beyond 140</b><span>ชุมชนผู้นำที่พบกันทุกปี และส่งต่อจากรุ่นสู่รุ่น</span></div>
+      <div class="to150"><b>2027 → 2037</b><span>วางรากฐานวันนี้ ให้วาระ 150 ปี<br>มีเครือข่ายที่เติบโตเต็มที่</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="l"><img src="assets/mediator-black.svg" alt=""><b></b><span>Beyond 140 · Concept Proposal</span></div>
+    <div>03 / 06</div>
+  </div>
+</section>
+
+<!-- ============ 4 · DESIGN — PEOPLE ============ -->
+<section class="slide">
+  <div class="topbar">
+    <div class="kicker">03 · Design — <span class="th">ผู้ร่วมเวที</span></div>
+    <div class="fiveD"><span class="done">Discover</span><i></i><span class="done">Define</span><i></i><span class="on">Design</span><i></i><span class="next">Develop</span><i></i><span class="next">Deliver</span></div>
+  </div>
+  <h2 class="title">ผู้นำรุ่นใหม่ 4 กลุ่ม — <em>ทุกฝั่งของความสัมพันธ์</em> บนเวทีเดียวกัน</h2>
+  <p class="lead">ความสมดุลคือหัวใจของเวทีนี้: ผู้นำญี่ปุ่นรุ่นใหม่ ผู้นำไทยทั้งภาคการเมืองและภาคพลเมือง และ <b>“ผู้เชื่อมโยง”</b> ที่ยังคงอยู่ แม้ผู้บริหารญี่ปุ่นจะหมุนเวียนกลับประเทศ</p>
+
+  <div class="spectrum" style="margin-top:20px">
+    <div class="bar"></div>
+    <span style="left:0;padding-left:0">ฝั่งญี่ปุ่น</span>
+    <span style="left:50%;transform:translateX(-50%)">ผู้เชื่อมโยง</span>
+    <span style="right:0;padding-right:0">ฝั่งไทย</span>
+  </div>
+
+  <div class="people">
+    <div class="pc">
+      <div class="side">Japan · <span class="th">ฝั่งญี่ปุ่น</span></div>
+      <div class="logo"><img src="assets/wbc.webp" alt="WBC" style="max-height:62px"></div>
+      <div class="name">WBC</div>
+      <div class="who">กลุ่มผู้นำญี่ปุ่นรุ่นใหม่<br>ในประเทศไทย</div>
+      <div class="role"><b>บทบาทบนเวที</b>นำมุมมองธุรกิจและสังคมญี่ปุ่นรุ่นใหม่ มาร่วมตั้งโจทย์อนาคตของสองประเทศ</div>
+    </div>
+    <div class="pc bridge">
+      <div class="flag">กุญแจความต่อเนื่อง</div>
+      <div class="side">Bridge · <span class="th">ฝั่งเชื่อมโยง</span></div>
+      <div class="logo">
+        <svg width="120" height="64" viewBox="0 0 132 70" fill="none" stroke="#A4824A" stroke-width="2.2" stroke-linecap="round">
+          <path d="M4 52 H128"/><path d="M14 52 Q66 -6 118 52"/>
+          <path d="M30 52 V31"/><path d="M48 52 V20"/><path d="M66 52 V16"/><path d="M84 52 V20"/><path d="M102 52 V31"/>
+          <circle cx="10" cy="62" r="5" fill="#A8262F" stroke="none"/><circle cx="122" cy="62" r="5" fill="#22346B" stroke="none"/>
+        </svg>
+      </div>
+      <div class="name">พนักงานคนไทย<br>ในบริษัทญี่ปุ่น</div>
+      <div class="who">ผู้เข้าใจทั้งสองวัฒนธรรม<br>จากการทำงานจริง</div>
+      <div class="role"><b>บทบาทบนเวที</b>สะพานระยะยาว ส่งต่อสายสัมพันธ์เมื่อ<span class="nw">ผู้บริหาร</span>ญี่ปุ่นหมุนเวียนกลับประเทศ</div>
+    </div>
+    <div class="pc">
+      <div class="side">Thailand · <span class="th">ภาคการเมือง</span></div>
+      <div class="logo"><img src="assets/topform.png" alt="TopForm" style="max-height:80px"></div>
+      <div class="name">TopForm</div>
+      <div class="who">ผู้นำการเมืองรุ่นใหม่<br>จาก<span class="nw">สถาบันพระปกเกล้า</span></div>
+      <div class="role"><b>บทบาทบนเวที</b>เชื่อมความร่วมมือสู่ระดับนโยบาย และการพัฒนาท้องถิ่น</div>
+    </div>
+    <div class="pc">
+      <div class="side">Thailand · <span class="th">ภาคพลเมือง</span></div>
+      <div class="logo"><img src="assets/alist.webp" alt="A-List"></div>
+      <div class="name">A-List</div>
+      <div class="who">ผู้นำพลเมืองรุ่นใหม่<br>จาก<span class="nw">สถาบันพระปกเกล้า</span></div>
+      <div class="role"><b>บทบาทบนเวที</b>ขยายผลความร่วมมือสู่ชุมชน และภาคประชาสังคม</div>
+    </div>
+  </div>
+
+  <div class="format">
+    <div class="k">รูปแบบผู้บรรยาย</div>
+    <div>ผู้แทน <b>กลุ่มละ 1 ท่าน</b> ร่วมเสวนา <b>“4 เสียง 1 อนาคต”</b> &nbsp;·&nbsp; สมาชิกทุกกลุ่มร่วมเวิร์กช็อปแบบ <b>โต๊ะผสม</b> ในสัดส่วนที่สมดุล</div>
+  </div>
+
+  <div class="foot">
+    <div class="l"><img src="assets/mediator-black.svg" alt=""><b></b><span>Beyond 140 · Concept Proposal</span></div>
+    <div>04 / 06</div>
+  </div>
+</section>
+
+<!-- ============ 5 · DESIGN — FORMAT & VENUE ============ -->
+<section class="slide">
+  <div class="topbar">
+    <div class="kicker">03 · Design — <span class="th">รูปแบบงานและสถานที่</span></div>
+    <div class="fiveD"><span class="done">Discover</span><i></i><span class="done">Define</span><i></i><span class="on">Design</span><i></i><span class="next">Develop</span><i></i><span class="next">Deliver</span></div>
+  </div>
+  <h2 class="title">บ่ายแห่ง <em>บทสนทนา</em> · ค่ำแห่ง <em>มิตรภาพ</em></h2>
+  <p class="lead">วาระ 140 ปี ควรได้รับการต้อนรับในสถานที่ที่สะท้อนทั้ง <b>เกียรติ</b> และ <b>ความเป็นเจ้าบ้าน</b> ของมิตรภาพไทย–ญี่ปุ่น</p>
+
+  <div class="fv">
+    <div>
+      <div class="sess">
+        <div class="when"><b>ช่วงบ่าย</b><span>Dialogue</span><i>13:30 – 17:00</i></div>
+        <ul>
+          <li><b>พิธีเปิด</b> — กล่าวต้อนรับโดยผู้แทนสถานเอกอัครราชทูตญี่ปุ่น และ<span class="nw">สถาบันพระปกเกล้า</span></li>
+          <li><b>Keynote “140 ปี สู่โจทย์ของอนาคต”</b> — ข้อค้นพบจากรายงานวิจัย 3 เล่ม</li>
+          <li><b>เสวนา “4 เสียง 1 อนาคต”</b> — ผู้แทนผู้นำรุ่นใหม่ทั้ง 4 กลุ่ม</li>
+          <li><b>เวิร์กช็อปโต๊ะผสม</b> — ร่วมร่าง “140+ Commitments”</li>
+        </ul>
+      </div>
+      <div class="sess">
+        <div class="when"><b>ช่วงค่ำ</b><span>Networking</span><i>18:00 – 20:30</i></div>
+        <ul>
+          <li><b>งานเลี้ยงรับรอง</b> ในบรรยากาศที่เป็นส่วนตัวและอบอุ่น</li>
+          <li><b>ประกาศ “140+ Commitments”</b> และเปิดตัวเครือข่าย Beyond 140</li>
+          <li><b>ภาพแห่งวาระ 140 ปี</b> — ผู้นำรุ่นใหม่ทุกกลุ่มร่วมบันทึกภาพ</li>
+        </ul>
+      </div>
+      <div class="facts">
+        <div><b>ช่วงเวลา</b>ปี 2027 ใกล้วันครบรอบ 26 กันยายน</div>
+        <div><b>ผู้เข้าร่วม</b>เฉพาะผู้ได้รับเชิญ</div>
+        <div><b>รูปแบบ</b>ครึ่งวัน + งานเลี้ยงรับรอง</div>
+      </div>
+    </div>
+
+    <div class="venue">
+      <div class="k">Venue · <span class="th">สถานที่</span></div>
+      <h3>เมื่อมิตร เชิญมิตรเข้าบ้าน</h3>
+      <p class="intro">เราเชื่อว่าสถานที่ที่สมเกียรติที่สุดสำหรับวาระนี้ คือพื้นที่ทางการทูตที่ฝ่ายญี่ปุ่นเป็นเจ้าบ้าน ด้วยคุณสมบัติดังนี้</p>
+      <div class="crit">
+        <div class="c"><i>◆</i><div><b>เกียรติแห่งวาระ</b> <span>— สะท้อนความสำคัญระดับการทูตของ<span class="nw">วาระ 140 ปี</span></span></div></div>
+        <div class="c"><i>◆</i><div><b>ความเป็นเจ้าบ้าน</b> <span>— การต้อนรับแบบญี่ปุ่นที่ทำให้ผู้มาเยือนรู้สึกเป็น “แขกของบ้าน”</span></div></div>
+        <div class="c"><i>◆</i><div><b>ความใกล้ชิด</b> <span>— ขนาดกระชับ เอื้อต่อบทสนทนาที่จริงใจ</span></div></div>
+        <div class="c"><i>◆</i><div><b>สองบรรยากาศในที่เดียว</b> <span>— ห้องรับรองสำหรับช่วงบ่าย และสวนสำหรับช่วงค่ำ</span></div></div>
+      </div>
+      <blockquote>“ความสัมพันธ์ที่ลึกซึ้งที่สุด<br>มักเริ่มต้นเมื่อเจ้าบ้านเปิดประตูต้อนรับ”</blockquote>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="l"><img src="assets/mediator-black.svg" alt=""><b></b><span>Beyond 140 · Concept Proposal</span></div>
+    <div class="src">กำหนดการเป็นข้อเสนอเบื้องต้น ปรับได้ตามความเหมาะสม &nbsp;·&nbsp; 05 / 06</div>
+  </div>
+</section>
+
+<!-- ============ 6 · PARTNERS & PROPOSER ============ -->
+<section class="slide">
+  <div class="topbar">
+    <div class="kicker">04 · Partners — <span class="th">องค์กรและผู้เสนอแนวคิด</span></div>
+    <div class="fiveD"><span class="done">Discover</span><i></i><span class="done">Define</span><i></i><span class="done">Design</span><i></i><span class="on">Develop</span><i></i><span class="on">Deliver</span></div>
+  </div>
+  <h2 class="title">ร่วมกันเขียน <em>บทต่อไป</em> ของ 140 ปี</h2>
+
+  <div class="pp">
+    <div class="prop">
+      <div class="ph-wrap"><img src="assets/proposer.png" alt="Takahiro Tatsumi"><div class="k">ผู้เสนอแนวคิด</div></div>
+      <div class="body">
+        <div class="nm">Takahiro Tatsumi</div>
+        <ul>
+          <li>ศิษย์เก่า<span class="nw">สถาบันพระปกเกล้า</span><br><b>หลักสูตร <span class="nw">A-List</span> <span class="nw">รุ่นที่ 1</span></b></li>
+          <li><b>mediator Co., Ltd.</b> — ผู้ประสานงานโครงการ</li>
+        </ul>
+        <div class="xp">ประสบการณ์เชื่อมโยงไทย–ญี่ปุ่น</div>
+        <div class="yrs">
+          <div><b>16<small>ปี</small></b>ในประเทศไทย</div>
+          <div><b>15<small>ปี</small></b>ในประเทศญี่ปุ่น</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="orgs">
+      <h4><span>องค์กรที่ร่วมขับเคลื่อน</span></h4>
+      <div class="grid">
+        <div class="oc">
+          <div class="lg"><img src="assets/embassy.png" alt="Embassy of Japan in Thailand"></div>
+          <div class="tag">เจ้าภาพร่วม (เสนอ)</div>
+          <div class="on">สถานเอกอัครราชทูตญี่ปุ่น ประจำประเทศไทย</div>
+          <div class="od">ผู้แทนรัฐบาลญี่ปุ่นในประเทศไทย ผู้ดูแลความสัมพันธ์ทวิภาคีตลอด 140 ปี</div>
+        </div>
+        <div class="oc">
+          <div class="lg"><div class="ph" data-slot="logo-kpi">โลโก้<br>KPI</div></div>
+          <div class="tag">เจ้าภาพร่วม (เสนอ)</div>
+          <div class="on">สถาบันพระปกเกล้า</div>
+          <div class="od">สถาบันด้านประชาธิปไตยและ<span class="nw">ธรรมาภิบาล</span> ภายใต้การกำกับของประธานรัฐสภา</div>
+        </div>
+        <div class="oc">
+          <div class="lg"><img src="assets/mediator-black.svg" alt="mediator" style="height:24px"></div>
+          <div class="tag">ผู้เสนอและประสานงาน</div>
+          <div class="on">mediator Co., Ltd.</div>
+          <div class="od">ทีมบริหารโครงการที่เชื่อมไทยและญี่ปุ่น <span class="nw">ผู้จัดทำ</span>รายงานวิจัยชุดครบรอบ <span class="nw">140 ปี (3 เล่ม)</span></div>
+        </div>
+        <div class="oc">
+          <div class="lg"><img src="assets/wbc.webp" alt="WBC" style="max-height:38px"></div>
+          <div class="tag">เครือข่ายผู้นำ · ฝั่งญี่ปุ่น</div>
+          <div class="on">WBC</div>
+          <div class="od">กลุ่มผู้นำญี่ปุ่นรุ่นใหม่ ในประเทศไทย</div>
+        </div>
+        <div class="oc">
+          <div class="lg"><img src="assets/topform.png" alt="TopForm"></div>
+          <div class="tag">เครือข่ายผู้นำ · ภาคการเมือง</div>
+          <div class="on">TopForm</div>
+          <div class="od">หลักสูตรผู้นำการเมืองรุ่นใหม่ <span class="nw">สถาบันพระปกเกล้า</span> — “คิดอย่างผู้นำ <span class="nw">ทำอย่างผู้รับผิดชอบ”</span></div>
+        </div>
+        <div class="oc">
+          <div class="lg"><img src="assets/alist.webp" alt="A-List"></div>
+          <div class="tag">เครือข่ายผู้นำ · ภาคพลเมือง</div>
+          <div class="on">A-List</div>
+          <div class="od">หลักสูตรผู้นำพลเมืองรุ่นใหม่ <span class="nw">สถาบันพระปกเกล้า</span> — “Anyone can be on <span class="nw">the A-List”</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ctaband">
+    <div class="k">Develop → Deliver<small>ก้าวต่อไปด้วยกัน</small></div>
+    <div class="s"><i>1</i><span><b>หารือแนวคิดร่วมกัน</b>ปรับเป้าหมายและขอบเขตร่วมกัน</span></div>
+    <div class="s"><i>2</i><span><b>กำหนดรายละเอียด</b>วันเวลา สถานที่ และผู้ร่วมเวที</span></div>
+    <div class="s"><i>3</i><span><b>จัดงาน Beyond 140 ในปี 2027</b>และต่อยอดเครือข่ายสู่ 150 ปี</span></div>
+    <div class="m"><img src="assets/mediator-white.svg" alt="mediator"><div>mediator.co.th</div></div>
+  </div>
+</section>
+
+</body>
+</html>
