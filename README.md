@@ -5,23 +5,19 @@
 | ไฟล์ | รายละเอียด |
 | --- | --- |
 | `Beyond140_Concept_Proposal.pdf` | เดคนำเสนอ 6 หน้า (16:9) |
-| `Beyond140_Slide_Outline.pdf` | โครงสร้างแต่ละสไลด์ (Title / Key Message / Content / Layout) และบันทึกผู้นำเสนอ (A4) |
 | `deck/beyond140.html` | ต้นฉบับเดค |
-| `deck/outline.html` | ต้นฉบับเอกสาร outline |
-| `deck/assets/` | โลโก้ ภาพผู้เสนอ และภาพย่อสไลด์ |
+| `deck/assets/` | โลโก้ทุกองค์กร (140 ปี, สถานทูต, KPI, WBC, TopForm, A-List, mediator) และภาพผู้เสนอ |
 
-## การใส่โลโก้ที่ยังรอ
+## แนวทางการออกแบบ (ตาม CI ของ mediator)
 
-ช่องโลโก้ที่ยังเป็นกรอบเส้นประมี `data-slot` กำกับไว้ใน `deck/beyond140.html`:
-
-- `logo-140` — โลโก้ครบรอบ 140 ปี (ปก)
-- `logo-kpi` — โลโก้สถาบันพระปกเกล้า (ปก และสไลด์ 6)
+- ขาว–ดำเป็นหลัก สีเสริมจากโลโก้: เขียว KPI `#0E4D24` และทอง `#B8913F` (ระหว่างทอง KPI และทองสถานทูต)
+- ตัวอักษร Sarabun ทั้งเดค (Thin / Medium / ExtraBold ตาม CI) ภาษาญี่ปุ่นใช้ Noto Sans JP แทน Yu Gothic
+- หัวกระดาษแบบ CI: แถบดำ + ชื่อหมวด ซ้ายบน, โลโก้ mediator ขวาบน, เส้นบาง และ copyright ด้านล่าง
 
 ## สร้าง PDF ใหม่
 
 ```bash
 cd deck
 export NODE_PATH=$(npm root -g)   # ใช้ Playwright ที่ติดตั้งแบบ global
-THUMB_JPEG=1 node build.cjs beyond140.html ../Beyond140_Concept_Proposal.pdf assets/thumbs
-node build.cjs outline.html ../Beyond140_Slide_Outline.pdf "" 794 1123
+node build.cjs beyond140.html ../Beyond140_Concept_Proposal.pdf
 ```
