@@ -220,6 +220,46 @@
   .fit2 { margin-top: 14px; font: 400 14px/1.5 var(--th); color: var(--g1); }
   .fit2 b { color: var(--black); }
 
+
+  /* ---------- formats v3 ---------- */
+  .fmt h2 { font-size: 33px; }
+  .fban { margin-top: 14px; display: grid; grid-template-columns: 250px 1fr 1fr 1fr; height: 66px; }
+  .fban .nm { display: flex; flex-direction: column; justify-content: center; padding: 0 18px; color: #fff; }
+  .fban .nm small { font: 600 11px/1 var(--th); letter-spacing: .16em; text-transform: uppercase; opacity: .8; }
+  .fban .nm b { margin-top: 5px; font: 800 26px/1 var(--th); letter-spacing: .04em; }
+  .fban .at { display: flex; flex-direction: column; justify-content: center; padding: 0 16px; border-left: 1px solid rgba(0,0,0,.08); font: 600 14.5px/1.35 var(--th); color: var(--black); }
+  .fban .at small { font: 700 11.5px/1 var(--th); color: var(--g2); margin-bottom: 5px; }
+  .f1 .fban .nm { background: var(--green); } .f1 .fban .at { background: var(--green-pale); }
+  .f2 .fban .nm { background: var(--gold); color: #111; } .f2 .fban .at { background: var(--gold-pale); }
+  .f1 h2 em { color: var(--green); } .f2 h2 em { color: #9A7426; }
+  .fl3 { display: grid; grid-template-columns: 1fr 1fr 1fr 1.55fr 1.15fr; column-gap: 10px; margin-top: 16px; }
+  .fl3 .phh { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 7px; border-bottom: 2px solid var(--black); margin-bottom: 10px; }
+  .fl3 .phh b { font: 800 15.5px/1 var(--th); } .fl3 .phh span { font: 400 12.5px/1 var(--th); color: var(--g2); }
+  .fl3 .phh.g { border-color: var(--green); } .fl3 .phh.g b { color: var(--green); }
+  .fl3 .c { background: var(--tint); padding: 14px 14px; height: 206px; position: relative; }
+  .fl3 .c .no { font: 200 30px/1 var(--th); color: var(--gold); }
+  .fl3 .c .en { margin-top: 8px; font: 700 10.5px/1.2 var(--th); letter-spacing: .12em; text-transform: uppercase; color: var(--g2); }
+  .fl3 .c .t { margin-top: 4px; font: 800 17px/1.3 var(--th); color: var(--black); }
+  .fl3 .c .d { margin-top: 4px; font: 400 13.5px/1.45 var(--th); color: var(--g1); }
+  .f1 .fl3 .c.key { box-shadow: inset 0 -5px 0 var(--green); } .f2 .fl3 .c.key { box-shadow: inset 0 -5px 0 var(--gold); }
+  .fl3 .c.net { background: var(--black); color: #fff; padding: 14px 18px; }
+  .fl3 .c.net .badge { position: absolute; top: 14px; right: 14px; background: var(--gold); color: #111; font: 800 11.5px/1 var(--th); padding: 6px 9px; }
+  .fl3 .c.net .t { color: #fff; font-size: 24px; } .fl3 .c.net .en { color: var(--gold); }
+  .fl3 .c.net ul { list-style: none; margin-top: 6px; }
+  .fl3 .c.net li { font: 500 13.5px/1.4 var(--th); color: #E6E6E6; padding: 5px 0 5px 16px; border-top: 1px solid rgba(255,255,255,.14); position: relative; }
+  .fl3 .c.net li::before { content: ""; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; background: var(--gold); }
+  .fl3 .c.aft { background: var(--green); } .fl3 .c.aft .no, .fl3 .c.aft .en { color: #BFD3C4; }
+  .fl3 .c.aft .t { color: #fff; font-size: 19px; } .fl3 .c.aft .d { color: #DCE8DF; }
+  .ex { margin-top: 14px; display: grid; grid-template-columns: 170px repeat(4, 1fr); gap: 8px; height: 116px; overflow: hidden; }
+  .ex .lab { background: var(--black); color: #fff; padding: 14px 14px; font: 800 16px/1.3 var(--th); display: flex; flex-direction: column; justify-content: center; }
+  .ex .lab small { font: 600 11px/1 var(--th); letter-spacing: .14em; color: var(--gold); margin-bottom: 7px; text-transform: uppercase; }
+  .ex .it { border: 1px solid var(--line); border-top-width: 4px; padding: 10px 13px; background: #fff; }
+  .f1 .ex .it { border-top-color: var(--green); } .f2 .ex .it { border-top-color: var(--gold); }
+  .ex .it .tag { display: inline-block; font: 700 11.5px/1 var(--th); color: #fff; background: var(--black); padding: 4px 7px; }
+  .f1 .ex .it .tag { background: var(--green); } .f2 .ex .it .tag { background: #111; }
+  .ex .it b { display: block; margin-top: 7px; font: 800 16px/1.3 var(--th); color: var(--black); }
+  .ex .it span { display: block; margin-top: 3px; font: 400 13px/1.45 var(--th); color: var(--g1); }
+
   /* ---------- 7 · proposer ---------- */
   .pf .photo { position: absolute; top: 0; left: 0; bottom: 0; width: 430px; background: #6C7884; }
   .pf .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
@@ -284,7 +324,7 @@
   </div>
 
   <div class="band">
-    <div class="p"><span>Proposed by</span><b>Takahiro Tatsumi</b> · mediator Co., Ltd.</div>
+    <div class="p"><span>Proposed by</span><b>Takahiro Tatsumi</b> · MEDIATOR CO., LTD.</div>
     <div class="d">ตุลาคม 2026</div>
   </div>
 </section>
@@ -405,52 +445,52 @@
   <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ข้อมูล WBC: THAIBIZ (2025) · ข้อมูลหลักสูตร: สถาบันพระปกเกล้า (2569)</span><span>04</span></div>
 </section>
 
-<!-- ============ 5 · DESIGN — FORMAT 1 ============ -->
-<section class="slide fmt">
+<!-- ============ 5 · DESIGN — FORUM ============ -->
+<section class="slide fmt f1">
   <div class="hd">
-    <div class="l"><i></i>03 · Design <span class="th">· รูปแบบที่ 1 · นำเสนอและเสวนา</span></div>
+    <div class="l"><i></i>03 · Design <span class="th">· รูปแบบที่ 1 · FORUM</span></div>
     <div class="r"><div class="steps"><span>Discover</span><span>Define</span><b>Design</b><span>Develop</span><span>Deliver</span></div><img src="assets/mediator-black.svg" alt="mediator"></div>
   </div>
   <div class="body">
-    <h2>รูปแบบที่ 1 · นำเสนอ 140 ปี ร่วมคิด แล้ว<em>เชื่อมเครือข่าย</em></h2>
-    <div class="bar"></div>
+    <h2>รูปแบบที่ 1 — <em>FORUM</em> · คุยบนเวทีเดียวกัน แล้วร่วมคิดโปรเจกต์ไทย–ญี่ปุ่น</h2>
+    <div class="fban"><div class="nm"><small>Beyond 140 Leaders</small><b>FORUM</b></div><div class="at"><small>บนเวที</small>ผู้แทน 4 กลุ่ม เสวนาร่วมกัน</div><div class="at"><small>ผู้เข้าร่วม</small>ทุกคนลงมือ ในโต๊ะผสม 4 กลุ่ม</div><div class="at"><small>ผลลัพธ์</small>ไอเดียโปรเจกต์ ที่คิดร่วมกันข้ามกลุ่ม</div></div>
     <div class="who"><div class="tt">ผู้เข้าร่วม <b>~80–120</b> คน</div><span>WBC<i>15–25</i></span><span>พนักงานไทยในบริษัทญี่ปุ่น<i>15–25</i></span><span>TopForm<i>15–25</i></span><span>A-List<i>15–25</i></span><span>ผู้เกี่ยวข้องอื่น ๆ<i>~20</i></span></div>
-    <div class="fl">
-      <div class="phh" style="grid-column: span 3"><b>ช่วงบ่าย · นำเสนอ</b><span>13:30 – 17:00</span></div>
+    <div class="fl3">
+      <div class="phh" style="grid-column: span 3"><b>ช่วงบ่าย</b><span>13:30 – 17:00</span></div>
       <div class="phh"><b>ช่วงค่ำ · Networking</b><span>18:00 – 20:30</span></div>
       <div class="phh g"><b>หลังวันงาน</b><span>2027 → 2037</span></div>
-      <div class="c"><div class="no">01</div><div class="en">Presentation</div><div class="t">แต่ละกลุ่มนำเสนอ “140 ปี”</div><div class="d">มุมมองของเรา และสิ่งที่อยากทำต่อ</div></div><div class="c"><div class="no">02</div><div class="en">Talk</div><div class="t">เสวนาผู้แทน 4 กลุ่ม</div><div class="d">“140 ปี และหลังจากนี้”</div></div><div class="c"><div class="no">03</div><div class="en">Co-creation</div><div class="t">ร่วมหาแนวทาง</div><div class="d">โต๊ะผสม 4 กลุ่ม เสนอสิ่งที่แต่ละฝ่ายถนัด</div></div>
+      <div class="c"><div class="no">01</div><div class="en">Keynote</div><div class="t">140 ปี ไทย–ญี่ปุ่น<br>ทำอะไรร่วมกันมา</div><div class="d">ตัวอย่างความร่วมมือ จากรายงานวิจัย 140 ปี</div></div><div class="c"><div class="no">02</div><div class="en">Panel</div><div class="t">เสวนา<br>“4 เสียง 1 อนาคต”</div><div class="d">ผู้แทนกลุ่มละ 1 ท่าน · หลังจากนี้เราจะทำอะไร</div></div><div class="c key"><div class="no">03</div><div class="en">Workshop</div><div class="t">โต๊ะผสม<br>ร่วมคิดโปรเจกต์</div><div class="d">1 โต๊ะ = ทุกกลุ่ม · เลือก 1 ธีมด้านล่าง</div></div>
       <div class="c net"><div class="badge">★ หัวใจของงาน</div><div class="no" style="color:var(--gold)">04</div><div class="en">Networking</div><div class="t">งานเลี้ยงเครือข่าย</div>
-        <ul><li>ผู้นำ ~80–120 คน พบกันข้ามกลุ่ม <span class="nw">ข้ามประเทศ</span></li><li>“เมื่อมิตร เชิญมิตรเข้าบ้าน”</li><li>ประกาศ 140+ Commitments</li></ul></div>
-      <div class="c aft"><div class="no">05</div><div class="en">Beyond 140</div><div class="t">เครือข่ายที่ไปต่อ</div><div class="d">พื้นที่กลางประสานงาน 4 กลุ่มและองค์กร<br><br>พบกันทุกปี จนถึงวาระ 150 ปี</div></div>
+        <ul><li>ผู้นำ ~80–120 คน ข้ามกลุ่ม <span class="nw">ข้ามประเทศ</span></li><li>“เมื่อมิตร เชิญมิตรเข้าบ้าน”</li><li>ประกาศ 140+ Commitments</li></ul></div>
+      <div class="c aft"><div class="no">05</div><div class="en">Beyond 140</div><div class="t">เครือข่ายที่ไปต่อ</div><div class="d">พื้นที่กลางประสานงาน 4 กลุ่ม<br><br>พบกันทุกปี ติดตามโปรเจกต์ จนถึงวาระ <span class="nw">150 ปี</span></div></div>
     </div>
-    <div class="fit2"><b>เหมาะเมื่อ</b> ต้องการบทสนทนาเชิงลึกระหว่างผู้แทนบนเวทีเดียวกัน</div>
+    <div class="ex"><div class="lab"><small>Example</small>ธีมโต๊ะผสม<br>ที่ 4 กลุ่มคิดร่วมกัน</div><div class="it"><div class="tag">CSR</div><b>CSR ร่วมกัน</b><span>บริษัทญี่ปุ่น × ชุมชนของ A-List เช่น การศึกษา สิ่งแวดล้อม ภัยพิบัติ</span></div><div class="it"><div class="tag">Tech</div><b>Tech Sharing Space</b><span>แชร์เทคโนโลยีและนวัตกรรมญี่ปุ่น ให้ท้องถิ่นไทยนำไปใช้</span></div><div class="it"><div class="tag">Talent</div><b>Next Gen Exchange</b><span>ฝึกงาน · mentoring · ดูงาน แลกเปลี่ยนคนรุ่นใหม่สองประเทศ</span></div><div class="it"><div class="tag">Local</div><b>จังหวัดไทย × จังหวัดญี่ปุ่น</b><span>จับคู่เมือง สินค้าชุมชน และการท่องเที่ยวร่วม</span></div></div>
   </div>
-  <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ปี 2027 ใกล้วันครบรอบ 26 กันยายน · กำหนดการเป็นข้อเสนอเบื้องต้น</span><span>05</span></div>
+  <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ปี 2027 ใกล้วันครบรอบ 26 กันยายน · กำหนดการและตัวอย่างเป็นข้อเสนอเบื้องต้น</span><span>05</span></div>
 </section>
 
-<!-- ============ 6 · DESIGN — FORMAT 2 ============ -->
-<section class="slide fmt">
+<!-- ============ 6 · DESIGN — PITCH ============ -->
+<section class="slide fmt f2">
   <div class="hd">
-    <div class="l"><i></i>03 · Design <span class="th">· รูปแบบที่ 2 · Pitch และกรรมการ</span></div>
+    <div class="l"><i></i>03 · Design <span class="th">· รูปแบบที่ 2 · PITCH</span></div>
     <div class="r"><div class="steps"><span>Discover</span><span>Define</span><b>Design</b><span>Develop</span><span>Deliver</span></div><img src="assets/mediator-black.svg" alt="mediator"></div>
   </div>
   <div class="body">
-    <h2>รูปแบบที่ 2 · แนะนำองค์กร เสนอความร่วมมือ แล้ว<em>เชื่อมเครือข่าย</em></h2>
-    <div class="bar"></div>
+    <h2>รูปแบบที่ 2 — <em>PITCH</em> · แต่ละกลุ่มเสนอความร่วมมือ กรรมการให้ความเห็น</h2>
+    <div class="fban"><div class="nm"><small>Beyond 140 Leaders</small><b>PITCH</b></div><div class="at"><small>บนเวที</small>ทีละกลุ่ม แนะนำองค์กร + เสนอโปรเจกต์</div><div class="at"><small>ผู้เข้าร่วม</small>ฟัง ซักถาม กรรมการให้ความเห็น</div><div class="at"><small>ผลลัพธ์</small>4 ข้อเสนอชัดเจน มีกลุ่มเจ้าของ</div></div>
     <div class="who"><div class="tt">ผู้เข้าร่วม <b>~80–120</b> คน</div><span>WBC<i>15–25</i></span><span>พนักงานไทยในบริษัทญี่ปุ่น<i>15–25</i></span><span>TopForm<i>15–25</i></span><span>A-List<i>15–25</i></span><span>ผู้เกี่ยวข้องอื่น ๆ<i>~20</i></span></div>
-    <div class="fl">
-      <div class="phh" style="grid-column: span 3"><b>ช่วงบ่าย · นำเสนอ</b><span>13:30 – 17:00</span></div>
+    <div class="fl3">
+      <div class="phh" style="grid-column: span 3"><b>ช่วงบ่าย</b><span>13:30 – 17:00</span></div>
       <div class="phh"><b>ช่วงค่ำ · Networking</b><span>18:00 – 20:30</span></div>
       <div class="phh g"><b>หลังวันงาน</b><span>2027 → 2037</span></div>
-      <div class="c"><div class="no">01</div><div class="en">Pitch</div><div class="t">แนะนำองค์กร + เสนอ<span class="nw">ความร่วมมือ</span></div><div class="d">แต่ละกลุ่มนำเสนอในคราวเดียว</div></div><div class="c"><div class="no">02</div><div class="en">Comment</div><div class="t">กรรมการให้ความเห็น</div><div class="d">เช่น ผู้แทนสถานทูต สถาบันพระปกเกล้า ผู้ทรงคุณวุฒิ</div></div><div class="c"><div class="no">03</div><div class="en">Wrap-up</div><div class="t">สรุปแนวทางร่วม</div><div class="d">รวบรวมข้อเสนอที่ไปต่อได้จริง</div></div>
+      <div class="c"><div class="no">01</div><div class="en">Pitch</div><div class="t">4 กลุ่ม 4 ข้อเสนอ</div><div class="d">กลุ่มละ ~10 นาที: เราคือใคร ถนัดอะไร อยากร่วมมืออย่างไร</div></div><div class="c"><div class="no">02</div><div class="en">Comment</div><div class="t">กรรมการให้ความเห็น</div><div class="d">สถานทูตญี่ปุ่น · KPI<br>และผู้ทรงคุณวุฒิ</div></div><div class="c key"><div class="no">03</div><div class="en">Select</div><div class="t">เลือกข้อเสนอ<br>ที่ไปต่อ</div><div class="d">สรุปแนวทาง และหากลุ่มที่อยากร่วมทำ</div></div>
       <div class="c net"><div class="badge">★ หัวใจของงาน</div><div class="no" style="color:var(--gold)">04</div><div class="en">Networking</div><div class="t">งานเลี้ยงเครือข่าย</div>
-        <ul><li>ผู้นำ ~80–120 คน พบกันข้ามกลุ่ม <span class="nw">ข้ามประเทศ</span></li><li>“เมื่อมิตร เชิญมิตรเข้าบ้าน”</li><li>ประกาศแนวทางร่วม 140+ Commitments</li></ul></div>
-      <div class="c aft"><div class="no">05</div><div class="en">Beyond 140</div><div class="t">เครือข่ายที่ไปต่อ</div><div class="d">พื้นที่กลางประสานงาน 4 กลุ่มและองค์กร<br><br>พบกันทุกปี จนถึงวาระ 150 ปี</div></div>
+        <ul><li>ผู้นำ ~80–120 คน ข้ามกลุ่ม <span class="nw">ข้ามประเทศ</span></li><li>“เมื่อมิตร เชิญมิตรเข้าบ้าน”</li><li>ประกาศ 140+ Commitments</li></ul></div>
+      <div class="c aft"><div class="no">05</div><div class="en">Beyond 140</div><div class="t">เครือข่ายที่ไปต่อ</div><div class="d">พื้นที่กลางประสานงาน 4 กลุ่ม<br><br>พบกันทุกปี ติดตามโปรเจกต์ จนถึงวาระ <span class="nw">150 ปี</span></div></div>
     </div>
-    <div class="fit2"><b>เหมาะเมื่อ</b> ต้องการให้ทุกกลุ่มได้นำเสนอ จัดง่าย ไม่ต้องประสานผู้แทนขึ้นเวทีพร้อมกัน</div>
+    <div class="ex"><div class="lab"><small>Example</small>ตัวอย่างข้อเสนอ<br>ของแต่ละกลุ่ม</div><div class="it"><div class="tag">WBC</div><b>Tech Sharing Day</b><span>ผู้บริหารญี่ปุ่นรุ่นใหม่ แชร์เทคโนโลยี และโนว์ฮาวให้ผู้นำไทย</span></div><div class="it"><div class="tag">พนักงานไทย</div><b>Bridge Mentoring</b><span>คนไทยในบริษัทญี่ปุ่น เป็นพี่เลี้ยงคนรุ่นใหม่ที่อยากทำงานกับญี่ปุ่น</span></div><div class="it"><div class="tag">TopForm</div><b>Policy Dialogue</b><span>เวทีนโยบายความร่วมมือ เมือง·ท้องถิ่น ไทย–ญี่ปุ่น</span></div><div class="it"><div class="tag">A-List</div><b>CSR × ชุมชน</b><span>จับคู่บริษัทญี่ปุ่นกับโครงการชุมชน ในจังหวัดของสมาชิก</span></div></div>
   </div>
-  <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ปี 2027 ใกล้วันครบรอบ 26 กันยายน · กำหนดการเป็นข้อเสนอเบื้องต้น</span><span>06</span></div>
+  <div class="ft"><span>Copyright © 2026 MEDIATOR CO., LTD. All Rights Reserved. &nbsp;·&nbsp; ปี 2027 ใกล้วันครบรอบ 26 กันยายน · กำหนดการและตัวอย่างเป็นข้อเสนอเบื้องต้น</span><span>06</span></div>
 </section>
 
 <!-- ============ 7 · PROPOSER ============ -->
@@ -465,7 +505,7 @@
   </div>
   <div class="body">
     <div class="name">Takahiro Tatsumi <span class="jpn">辰巳 貴廣</span></div>
-    <div class="title">Senior Account Executive · Business Development Team — <b>mediator Co., Ltd.</b></div>
+    <div class="title">Senior Account Executive · Business Development Team — <b>MEDIATOR CO., LTD.</b></div>
     <div class="tagline"><b>ลูกครึ่งไทย–ญี่ปุ่น</b> ผู้เติบโตในสองวัฒนธรรม และทำงานเชื่อมสองประเทศมาตลอด</div>
     <div class="stats">
       <div><b>15<small>ปี</small></b>ใช้ชีวิตในญี่ปุ่น</div>
