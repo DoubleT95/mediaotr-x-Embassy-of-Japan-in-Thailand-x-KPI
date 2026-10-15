@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>辰巳 貴廣 — Profile (JA)</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="fonts/profile-ja.css">
+<style>
+  .slide.dark  { --bg: #0E1013; --panel: #0B1A22; --tx: #F3F5F7; --g1: #C3C9D0; --g2: #8D96A0; --line: #262C33; --blue: #5DB9EE; --chip: #10202B; }
+  .slide.light { --bg: #FFFFFF; --panel: #EFF5F9; --tx: #111418; --g1: #454B53; --g2: #7A828B; --line: #E1E6EA; --blue: #1A7BBE; --chip: #EAF4FB; }
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #777; }
+  body { font-family: 'NSJP Profile', 'Sarabun', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: var(--bg); color: var(--tx); page-break-after: always; break-after: page; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .slide::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--blue); }
+  .nw { white-space: nowrap; }
+
+  .main { position: absolute; left: 64px; top: 46px; width: 800px; }
+  .kicker { font: 600 12px/1 'Sarabun', sans-serif; letter-spacing: .2em; color: var(--blue); }
+  .kicker span { font-family: 'NSJP Profile', sans-serif; letter-spacing: .1em; }
+  .name { margin-top: 20px; display: flex; align-items: baseline; gap: 18px; }
+  .name b { font-weight: 700; font-size: 54px; line-height: 1; letter-spacing: .06em; }
+  .name span { font: 600 18px/1 'Sarabun', sans-serif; letter-spacing: .16em; color: var(--g2); }
+  .role { margin-top: 14px; font-weight: 700; font-size: 22px; line-height: 1.3; color: var(--blue); }
+  .chips { margin-top: 12px; display: flex; gap: 8px; }
+  .chips span { background: var(--chip); border-left: 3px solid var(--blue); padding: 7px 12px; font-size: 13.5px; line-height: 1.2; color: var(--tx); }
+  .chips span b { font-weight: 700; }
+  .sum { margin-top: 16px; font-size: 14.5px; line-height: 1.7; color: var(--g1); max-width: 790px; }
+  .sum b { color: var(--tx); font-weight: 700; }
+
+  .stats { margin-top: 16px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats div { padding: 10px 0 10px 18px; font-size: 13px; line-height: 1.35; color: var(--g2); }
+  .stats div:first-child { padding-left: 0; }
+  .stats div + div { border-left: 1px solid var(--line); }
+  .stats b { display: block; font: 200 40px/1 'Sarabun', sans-serif; color: var(--tx); }
+  .stats b small { font-size: 15px; font-weight: 500; color: var(--g2); margin-left: 3px; font-family: 'NSJP Profile', sans-serif; }
+  .stats .hl b { color: var(--blue); font-weight: 300; }
+  .stats .hl { color: var(--tx); font-weight: 500; }
+
+  .two { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .col .h { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 8px; border-bottom: 2px solid var(--tx); }
+  .col .h b { font-weight: 800; font-size: 17px; }
+  .col .h span { font: 700 10.5px/1 'Sarabun', sans-serif; letter-spacing: .16em; color: var(--blue); }
+  .it { display: grid; grid-template-columns: 38px 1fr; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .it i { font: 200 24px/1.05 'Sarabun', sans-serif; font-style: normal; color: var(--blue); }
+  .it b { display: block; font-weight: 700; font-size: 15.5px; line-height: 1.35; }
+  .it span { display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.5; color: var(--g2); }
+
+  .side { position: absolute; right: 0; top: 0; bottom: 0; width: 376px; background: var(--panel); }
+  .side .ph { height: 292px; background: #5F6B76; overflow: hidden; }
+  .side .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; display: block; }
+  .side .sb { padding: 18px 28px 0; }
+  .side .h2 { font-weight: 800; font-size: 14px; display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 6px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
+  .side .h2 span { font: 700 10px/1 'Sarabun', sans-serif; letter-spacing: .16em; color: var(--blue); }
+  .side .h2 + * { }
+  .side .cr { display: grid; grid-template-columns: 56px 1fr; padding: 6px 0; }
+  .side .cr i { font-style: normal; font: 600 12px/1.35 'Sarabun', 'NSJP Profile', sans-serif; color: var(--blue); }
+  .side .cr i small { display: block; font-family: 'NSJP Profile', sans-serif; font-size: 11px; font-weight: 500; color: var(--g2); }
+  .side .cr b { display: block; font-weight: 700; font-size: 13px; line-height: 1.35; }
+  .side .cr span { display: block; font-size: 11.5px; line-height: 1.4; color: var(--g2); }
+  .side .gap { height: 10px; }
+  .side .ct { position: absolute; left: 28px; right: 28px; bottom: 20px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-size: 12px; color: var(--g2); }
+  .side .ct b { color: var(--tx); font: 600 12.5px/1 'Sarabun', sans-serif; }
+</style>
+</head>
+<body>
+<section class="slide dark">
+  <div class="main">
+    <div class="kicker">PROFILE · <span>自己紹介</span></div>
+    <div class="name"><b>辰巳 貴廣</b><span>TAKAHIRO TATSUMI</span></div>
+    <div class="role">日タイ事業ブリッジ・コーディネーター</div>
+    <div class="chips"><span><b>MEDIATOR CO., LTD.</b>（THAIBIZ）事業開発チーム Senior Account Executive</span><span>タイ下院議員アシスタント</span></div>
+    <div class="sum">日タイハーフとして培った<b>言語力・文化理解・現地ネットワーク</b>を活かし、日本とタイの企業・団体を、<br>初動調査から長く続くパートナーシップづくりまでサポートしています。</div>
+
+    <div class="stats">
+      <div><b>15<small>年</small></b>日本で生活</div>
+      <div><b>16<small>年</small></b>タイで生活</div>
+      <div class="hl"><b>7<small>年</small></b>日タイをつなぐ実務</div>
+    </div>
+
+    <div class="two">
+      <div class="col">
+        <div class="h"><b>できること</b><span>WHAT I CAN DO</span></div>
+        <div class="it"><i>01</i><div><b>現地有力企業の発掘・アポイント獲得</b><span>タイ語ネイティブとして、現地企業へ直接アプローチ</span></div></div>
+        <div class="it"><i>02</i><div><b>商談同席・通訳・折衝サポート</b><span>双方の意図を正確に伝え、合意形成まで伴走</span></div></div>
+        <div class="it"><i>03</i><div><b>文化・商習慣の理解アドバイス</b><span>日タイ両国で育った経験から、すれ違いを未然に防ぐ</span></div></div>
+        <div class="it"><i>04</i><div><b>継続的な関係構築・フォロー</b><span>商談後も現地で関係を育て、長期的な成果へ</span></div></div>
+      </div>
+      <div class="col">
+        <div class="h"><b>現在の業務</b><span>NOW AT MEDIATOR</span></div>
+        <div class="it"><i>01</i><div><b>日タイ官民クライアントとの関係構築</b><span>ニーズ分析から提案、成果のフォローまで一貫して担当</span></div></div>
+        <div class="it"><i>02</i><div><b>新規開拓（B2B／B2C）</b><span>ビジネスマッチング・イベントを通じて顧客基盤を拡大</span></div></div>
+        <div class="it"><i>03</i><div><b>日タイ間のコミュニケーション・交渉支援</b><span>言語と文化のギャップを埋め、商談を前に進める</span></div></div>
+        <div class="it"><i>04</i><div><b>THAIBIZを活用したマーケティング・PR</b><span>日系ビジネスメディアで認知と商機を広げる</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="ph"><img src="assets/proposer.png" alt="辰巳 貴廣"></div>
+    <div class="sb">
+      <div class="h2">経歴<span>CAREER</span></div>
+      <div class="cr"><i>2021<small>日本</small></i><div><b>エレファントストーン株式会社</b><span>映像ディレクター・海外事業</span></div></div>
+      <div class="cr"><i>2023<small>タイ</small></i><div><b>ElephantStone (Thailand)</b><span>Branch Assistant Chief・支社運営</span></div></div>
+      <div class="cr"><i>現在<small>タイ</small></i><div><b>MEDIATOR CO., LTD.</b><span>Senior Account Executive</span></div></div>
+      <div class="gap"></div>
+      <div class="h2">学歴<span>EDUCATION</span></div>
+      <div class="cr"><i>2019<small>タイ</small></i><div><b>シラパコーン大学</b><span>工学部 機械工学科 卒業</span></div></div>
+      <div class="cr"><i>2021<small>日本</small></i><div><b>カイ日本語スクール</b><span>ビジネスコース 修了</span></div></div>
+      <div class="cr"><i>2026<small>タイ</small></i><div><b>キング・プラチャーティポック研究所</b><span>A-List 第1期 在籍中</span></div></div>
+    </div>
+    <div class="ct"><b>Tatsumi.t95@gmail.com</b><span>タイ・バンコク</span></div>
+  </div>
+</section>
+<section class="slide light">
+  <div class="main">
+    <div class="kicker">PROFILE · <span>自己紹介</span></div>
+    <div class="name"><b>辰巳 貴廣</b><span>TAKAHIRO TATSUMI</span></div>
+    <div class="role">日タイ事業ブリッジ・コーディネーター</div>
+    <div class="chips"><span><b>MEDIATOR CO., LTD.</b>（THAIBIZ）事業開発チーム Senior Account Executive</span><span>タイ下院議員アシスタント</span></div>
+    <div class="sum">日タイハーフとして培った<b>言語力・文化理解・現地ネットワーク</b>を活かし、日本とタイの企業・団体を、<br>初動調査から長く続くパートナーシップづくりまでサポートしています。</div>
+
+    <div class="stats">
+      <div><b>15<small>年</small></b>日本で生活</div>
+      <div><b>16<small>年</small></b>タイで生活</div>
+      <div class="hl"><b>7<small>年</small></b>日タイをつなぐ実務</div>
+    </div>
+
+    <div class="two">
+      <div class="col">
+        <div class="h"><b>できること</b><span>WHAT I CAN DO</span></div>
+        <div class="it"><i>01</i><div><b>現地有力企業の発掘・アポイント獲得</b><span>タイ語ネイティブとして、現地企業へ直接アプローチ</span></div></div>
+        <div class="it"><i>02</i><div><b>商談同席・通訳・折衝サポート</b><span>双方の意図を正確に伝え、合意形成まで伴走</span></div></div>
+        <div class="it"><i>03</i><div><b>文化・商習慣の理解アドバイス</b><span>日タイ両国で育った経験から、すれ違いを未然に防ぐ</span></div></div>
+        <div class="it"><i>04</i><div><b>継続的な関係構築・フォロー</b><span>商談後も現地で関係を育て、長期的な成果へ</span></div></div>
+      </div>
+      <div class="col">
+        <div class="h"><b>現在の業務</b><span>NOW AT MEDIATOR</span></div>
+        <div class="it"><i>01</i><div><b>日タイ官民クライアントとの関係構築</b><span>ニーズ分析から提案、成果のフォローまで一貫して担当</span></div></div>
+        <div class="it"><i>02</i><div><b>新規開拓（B2B／B2C）</b><span>ビジネスマッチング・イベントを通じて顧客基盤を拡大</span></div></div>
+        <div class="it"><i>03</i><div><b>日タイ間のコミュニケーション・交渉支援</b><span>言語と文化のギャップを埋め、商談を前に進める</span></div></div>
+        <div class="it"><i>04</i><div><b>THAIBIZを活用したマーケティング・PR</b><span>日系ビジネスメディアで認知と商機を広げる</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="ph"><img src="assets/proposer.png" alt="辰巳 貴廣"></div>
+    <div class="sb">
+      <div class="h2">経歴<span>CAREER</span></div>
+      <div class="cr"><i>2021<small>日本</small></i><div><b>エレファントストーン株式会社</b><span>映像ディレクター・海外事業</span></div></div>
+      <div class="cr"><i>2023<small>タイ</small></i><div><b>ElephantStone (Thailand)</b><span>Branch Assistant Chief・支社運営</span></div></div>
+      <div class="cr"><i>現在<small>タイ</small></i><div><b>MEDIATOR CO., LTD.</b><span>Senior Account Executive</span></div></div>
+      <div class="gap"></div>
+      <div class="h2">学歴<span>EDUCATION</span></div>
+      <div class="cr"><i>2019<small>タイ</small></i><div><b>シラパコーン大学</b><span>工学部 機械工学科 卒業</span></div></div>
+      <div class="cr"><i>2021<small>日本</small></i><div><b>カイ日本語スクール</b><span>ビジネスコース 修了</span></div></div>
+      <div class="cr"><i>2026<small>タイ</small></i><div><b>キング・プラチャーティポック研究所</b><span>A-List 第1期 在籍中</span></div></div>
+    </div>
+    <div class="ct"><b>Tatsumi.t95@gmail.com</b><span>タイ・バンコク</span></div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'NSJP Profile';
+  font-style: normal;
+  font-weight: 200 800;
+  src: url(profile-ja.woff2) format('woff2');
+}
