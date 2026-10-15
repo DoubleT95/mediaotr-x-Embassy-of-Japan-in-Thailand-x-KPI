@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Takahiro Tatsumi — Profile</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root {
+    --bg: #0E1013;
+    --panel: #0B1A22;
+    --white: #F3F5F7;
+    --g1: #C3C9D0;
+    --g2: #8D96A0;
+    --line: #262C33;
+    --blue: #5DB9EE;
+    --blue-deep: #1D5E86;
+    --th: 'Sarabun', sans-serif;
+    --jp: 'Noto Sans JP', sans-serif;
+  }
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #777; }
+  body { font-family: var(--th); color: var(--white); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: var(--bg); }
+  .slide::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--blue); }
+
+  .main { position: absolute; left: 64px; top: 46px; width: 790px; }
+  .kicker { display: flex; justify-content: space-between; align-items: center; font: 600 12px/1 var(--th); letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+  .kicker img { height: 15px; opacity: .9; }
+  .name { margin-top: 18px; display: flex; align-items: baseline; gap: 16px; }
+  .name b { font: 800 46px/1 var(--th); letter-spacing: -.01em; }
+  .name span { font: 500 26px/1 var(--jp); color: var(--g2); letter-spacing: .08em; }
+  .role { margin-top: 10px; font: 700 21px/1.3 var(--th); color: var(--blue); }
+  .title { margin-top: 4px; font: 400 15px/1.45 var(--th); color: var(--g1); }
+  .title b { color: var(--white); font-weight: 700; }
+  .sum { margin-top: 10px; font: 400 14.5px/1.55 var(--th); color: var(--g1); max-width: 760px; }
+  .sum b { color: var(--white); font-weight: 600; }
+
+  .stats { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats div { padding: 8px 0 8px 16px; font: 400 12.5px/1.35 var(--th); color: var(--g2); }
+  .stats div:first-child { padding-left: 0; }
+  .stats div + div { border-left: 1px solid var(--line); }
+  .stats b { display: block; font: 200 34px/1 var(--th); color: var(--white); }
+  .stats b small { font: 500 14px/1 var(--th); color: var(--g2); margin-left: 3px; }
+  .stats .hl b { color: var(--blue); font-weight: 300; }
+
+  .two { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .h { font: 700 12px/1 var(--th); letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .can .i { display: grid; grid-template-columns: 22px 1fr; padding: 3px 0; font: 700 15px/1.35 var(--th); color: var(--white); }
+  .can .i::before { content: "—"; color: var(--blue); }
+  .now .i { position: relative; padding: 3px 0 3px 14px; font: 400 13px/1.4 var(--th); color: var(--g1); }
+  .now .i::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--blue); }
+  .now .i b { color: var(--white); font-weight: 600; }
+
+  .hi { margin-top: 10px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .hi div { border-left: 3px solid var(--blue); background: #151A20; padding: 6px 12px; font: 400 12px/1.35 var(--th); color: var(--g2); }
+  .hi div b { display: block; font: 700 14px/1.3 var(--th); color: var(--white); margin-bottom: 2px; }
+  .career { position: absolute; left: 64px; width: 790px; bottom: 46px; border-top: 1px solid var(--line); padding-top: 12px; }
+  .tl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; position: relative; }
+  .tl::before { content: ""; position: absolute; left: 0; right: 0; top: 23px; height: 1px; background: var(--line); }
+  .tl .y { font: 600 12.5px/1 var(--th); color: var(--blue); letter-spacing: .04em; }
+  .tl .dot { width: 9px; height: 9px; background: var(--g2); margin: 6px 0 8px; position: relative; }
+  .tl .cur .dot { background: var(--blue); }
+  .tl b { display: block; font: 700 13.5px/1.3 var(--th); color: var(--white); }
+  .tl span { display: block; margin-top: 3px; font: 400 12px/1.45 var(--th); color: var(--g2); }
+
+  .foot { position: absolute; left: 64px; width: 790px; bottom: 22px; display: flex; justify-content: space-between; font: 400 12px/1.4 var(--th); color: var(--g2); }
+  .foot b { color: var(--g1); font-weight: 600; }
+
+  .side { position: absolute; right: 0; top: 0; bottom: 0; width: 400px; background: var(--panel); padding: 30px 30px 0; }
+  .side .ph { height: 400px; background: #5F6B76; overflow: hidden; }
+  .side .ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
+  .side .box { margin-top: 18px; }
+  .side .box + .box { margin-top: 14px; padding-top: 14px; border-top: 1px solid #1C3442; }
+  .side .box .h { margin-bottom: 7px; }
+  .side .box div { font: 400 13px/1.5 var(--th); color: var(--g1); }
+  .side .box div b { color: var(--white); font-weight: 600; }
+  .side .tag { display: inline-block; margin-top: 2px; border: 1px solid var(--blue); color: var(--blue); padding: 4px 8px; font: 600 12px/1.2 var(--th); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="main">
+    <div class="kicker"><span>Profile · Self Introduction</span><img src="assets/mediator-white.svg" alt="mediator"></div>
+    <div class="name"><b>Takahiro Tatsumi</b><span>辰巳 貴廣</span></div>
+    <div class="role">Thai–Japanese Business Bridge Coordinator</div>
+    <div class="title">Senior Account Executive · Business Development Team — <b>MEDIATOR CO., LTD.</b> (THAIBIZ)</div>
+    <div class="sum">Half Thai, half Japanese. I use <b>native Thai, business Japanese, cultural understanding and local networks</b> to help Japanese and Thai organisations — from first market research to partnerships that last.</div>
+
+    <div class="stats">
+      <div><b>15<small>yrs</small></b>lived in Japan</div>
+      <div><b>16<small>yrs</small></b>lived in Thailand</div>
+      <div class="hl"><b>7<small>yrs</small></b>bridging Thailand &amp; Japan</div>
+      <div class="hl"><b>114<small>%</small></b>of sales target (2024)</div>
+    </div>
+
+    <div class="two">
+      <div class="can">
+        <div class="h">What I can do</div>
+        <div class="i">Find and approach key Thai companies</div>
+        <div class="i">Business meetings, interpreting and negotiation</div>
+        <div class="i">Advice on culture and business practice</div>
+        <div class="i">Long-term relationship building and follow-up</div>
+      </div>
+      <div class="now">
+        <div class="h">Now at MEDIATOR</div>
+        <div class="i"><b>Client relations</b> with Japanese and Thai organisations, public and private</div>
+        <div class="i"><b>New business</b> in B2B / B2C via business matching and events</div>
+        <div class="i"><b>Negotiation</b> between Japanese and Thai partners</div>
+        <div class="i"><b>Marketing and PR</b> through the business media THAIBIZ</div>
+      </div>
+    </div>
+    <div class="hi">
+      <div><b>Built a Thai branch team</b>Hired 3 from ~300 applicants and ran their training in Japan</div>
+      <div><b>Launched new services</b>Planned overseas resources for “Hitotema” and “Yorizo”</div>
+      <div><b>Bridged two languages daily</b>Thai ⇄ Japanese interpreting, translation and localisation</div>
+    </div>
+  </div>
+
+  <div class="career">
+    <div class="h">Career</div>
+    <div class="tl">
+      <div><div class="y">THAILAND · 2016</div><div class="dot"></div><b>YANCOOL PRODUCTION</b><span>Founder · video production agency and sales</span></div>
+      <div><div class="y">JAPAN · 2021</div><div class="dot"></div><b>ElephantStone Inc.</b><span>Video director · overseas partners, Thai branch set-up</span></div>
+      <div><div class="y">THAILAND · 2023</div><div class="dot"></div><b>ElephantStone (Thailand)</b><span>Branch Assistant Chief · ~150 projects in 2024</span></div>
+      <div class="cur"><div class="y">THAILAND · NOW</div><div class="dot"></div><b>MEDIATOR CO., LTD.</b><span>Senior Account Executive · Thai–Japanese co-creation</span></div>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Tatsumi.t95@gmail.com</b> &nbsp;·&nbsp; mediator.co.th</span><span>Bangkok, Thailand</span></div>
+
+  <div class="side">
+    <div class="ph"><img src="assets/proposer.png" alt="Takahiro Tatsumi"></div>
+    <div class="box">
+      <div class="h">Education</div>
+      <div><b>Silpakorn University</b> — B.Eng., Mechanical Engineering (2019)</div>
+      <div><b>KAI Japanese Language School</b>, Tokyo — Business course (2021)</div>
+    </div>
+    <div class="box">
+      <div class="h">Languages &amp; Skills</div>
+      <div><b>Thai</b> native · <b>Japanese</b> business level (JLPT N2)</div>
+      <div>Google Workspace · Figma · Adobe Premiere Pro</div>
+      <div class="tag">A-List Class 1 · King Prajadhipok's Institute</div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
