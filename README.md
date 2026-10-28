@@ -8,9 +8,9 @@
 | `Beyond140_Concept_Proposal_EN.pdf` | ฉบับภาษาอังกฤษ |
 | `deck/beyond140.html` | ต้นฉบับเดค (ไทย) |
 | `deck/beyond140_en.html` | ต้นฉบับเดค (อังกฤษ) |
-| `Takahiro_Tatsumi_Profile_EN.pdf` | โปรไฟล์ 1 หน้า (อังกฤษ · ฉบับแรก) |
+| `Takahiro_Tatsumi_Profile_EN_Dark.pdf` / `_Light.pdf` | โปรไฟล์ 1 หน้า (อังกฤษ) โทนมืด / โทนขาว |
 | `Takahiro_Tatsumi_Profile_JA_Dark.pdf` / `_Light.pdf` | โปรไฟล์ 1 หน้า (ญี่ปุ่น) โทนมืด / โทนขาว |
-| `deck/profile_ja.html` | ต้นฉบับโปรไฟล์ญี่ปุ่น (หน้า 1 = มืด, หน้า 2 = ขาว) |
+| `deck/profile_ja.html` / `deck/profile_en.html` | ต้นฉบับโปรไฟล์ญี่ปุ่น / อังกฤษ (หน้า 1 = มืด, หน้า 2 = ขาว) |
 | `deck/assets/` | โลโก้ทุกองค์กร (140 ปี, สถานทูต, KPI, WBC, TopForm, A-List, mediator) และภาพผู้เสนอ |
 
 ## แนวทางการออกแบบ (ตาม CI ของ mediator)
