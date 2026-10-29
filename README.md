@@ -6,8 +6,10 @@
 | --- | --- |
 | `Beyond140_Concept_Proposal.pdf` | เดคนำเสนอ 7 หน้า (16:9) — รูปแบบงาน 2 แบบ |
 | `Beyond140_Concept_Proposal_EN.pdf` | ฉบับภาษาอังกฤษ |
+| `Beyond140_Concept_Proposal_JA.pdf` | ฉบับภาษาญี่ปุ่น |
 | `deck/beyond140.html` | ต้นฉบับเดค (ไทย) |
 | `deck/beyond140_en.html` | ต้นฉบับเดค (อังกฤษ) |
+| `deck/beyond140_ja.html` | ต้นฉบับเดค (ญี่ปุ่น) |
 | `Takahiro_Tatsumi_Profile_EN_Dark.pdf` / `_Light.pdf` | โปรไฟล์ 1 หน้า (อังกฤษ) โทนมืด / โทนขาว |
 | `Takahiro_Tatsumi_Profile_JA_Dark.pdf` / `_Light.pdf` | โปรไฟล์ 1 หน้า (ญี่ปุ่น) โทนมืด / โทนขาว |
 | `deck/profile_ja.html` / `deck/profile_en.html` | ต้นฉบับโปรไฟล์ญี่ปุ่น / อังกฤษ (หน้า 1 = มืด, หน้า 2 = ขาว) |

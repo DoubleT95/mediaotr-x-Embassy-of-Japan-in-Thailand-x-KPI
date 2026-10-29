@@ -74,13 +74,15 @@
 
   /* ---------- 2 · discover ---------- */
   .dc { display: grid; grid-template-columns: 430px 1fr; gap: 44px; margin-top: 34px; }
-  .quote { background: var(--green); color: #fff; padding: 30px 30px 24px; position: relative; }
+  .quote { background: var(--green); color: #fff; padding: 24px 26px 18px; position: relative; }
   .quote .lbl { color: #BFD3C4; }
   .quote .q-jp { margin-top: 16px; font: 500 20px/1.5 var(--jp); color: #fff; letter-spacing: .04em; }
-  .quote .q-th { margin-top: 10px; font: 700 25px/1.45 var(--th); color: #fff; }
-  .quote .who { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.25); font: 400 13.5px/1.5 var(--th); color: #D7E3DA; }
-  .quote .who b { display: block; color: #fff; font-weight: 600; font-size: 14.5px; }
-  .quote .src { margin-top: 8px; font: 400 11px/1.3 var(--th); color: #9DB8A4; }
+  .quote .q-th { margin-top: 12px; font: 700 21px/1.45 var(--th); color: #fff; }
+  .quote .qwho { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.25); font: 400 13.5px/1.5 var(--th); color: #D7E3DA; }
+  .quote .qwho b { display: block; color: #fff; font-weight: 600; font-size: 14.5px; }
+  .quote .pt { margin-top: 12px; padding: 9px 12px; background: rgba(255,255,255,.08); border-left: 3px solid var(--gold); font: 400 13px/1.5 var(--th); color: #D7E3DA; }
+  .quote .pt b { display: block; color: #fff; font-weight: 600; font-size: 12.5px; }
+  .quote .src { margin-top: 10px; font: 400 11px/1.3 var(--th); color: #9DB8A4; }
   .gap { display: grid; grid-template-columns: 60px 1fr; gap: 14px; padding: 25px 0; border-top: 1px solid var(--line); }
   .gap:last-child { border-bottom: 1px solid var(--line); }
   .gap .n { font: 200 50px/1 var(--th); color: var(--gold); }
@@ -300,7 +302,6 @@
   /* ---------- EN overrides ---------- */
   .cv .main { width: 760px; }
   .cv h1 { font-size: 60px; }
-  .quote .q-th { font-size: 22px; }
   .natl .chips { grid-template-columns: repeat(4, 124px); }
   .natl .chips span { font-size: 13.5px; }
   .pc .chips span { font-size: 12px; padding: 5px 7px; }
@@ -310,6 +311,8 @@
   .fl3 .c.net li::before { top: 9px; }
   .ex .it span { font-size: 12.5px; }
   .pf .med .it { font-size: 13px; }
+  .dc { margin-top: 26px; }
+  .quote .q-th { font-size: 20px; }
 </style>
 </head>
 <body>
@@ -350,11 +353,11 @@
     <div class="bar"></div>
     <div class="dc">
       <div class="quote">
-        <div class="lbl">Voice from Japan</div>
-        <div class="q-jp">「両国の若手交流が急務である」</div>
-        <div class="q-th">“Exchange between the young people of our two countries is urgent.”</div>
-        <div class="who"><b>H.E. Kazuya Nashida</b>Former Ambassador of Japan to Thailand<br>Founder of WBC (2023)</div>
-        <div class="src">Source: THAIBIZ, May 2025</div>
+        <div class="lbl">Message from the Ambassador</div>
+        <div class="q-th">Promote exchange among the younger generations, and pass the bond between our two countries — as equal partners — on to the next generation.</div>
+        <div class="qwho"><b>H.E. Mr. OTAKA Masato</b>Ambassador of Japan to Thailand</div>
+        <div class="pt"><b>138th anniversary message (Sep 2025)</b>Mutual understanding is deepening, especially among the younger generation.</div>
+        <div class="src">Summarised from the Ambassador’s messages (Feb &amp; Sep 2025) · Embassy of Japan in Thailand</div>
       </div>
       <div>
         <div class="gap"><div class="n">1</div><div><div class="t">Strong on both sides, but not yet connected</div><div class="d">Young Thai and Japanese leaders each have their own networks, but no shared platform.</div></div></div>

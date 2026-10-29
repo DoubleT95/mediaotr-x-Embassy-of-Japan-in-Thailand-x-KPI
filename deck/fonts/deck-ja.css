@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'NSJP Deck';
+  font-style: normal;
+  font-weight: 200 800;
+  src: url(deck-ja.woff2) format('woff2');
+}
