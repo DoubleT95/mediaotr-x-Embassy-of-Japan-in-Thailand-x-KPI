@@ -6,7 +6,7 @@
 | --- | --- |
 | `Beyond140_Concept_Proposal.pdf` | เดคนำเสนอ 7 หน้า (16:9) — รูปแบบงาน 2 แบบ |
 | `Beyond140_Concept_Proposal_EN.pdf` | ฉบับภาษาอังกฤษ |
-| `Beyond140_Concept_Proposal_JA_v02.pdf` | ฉบับภาษาญี่ปุ่น (ล่าสุด · v01 = ฉบับก่อนหน้า) |
+| `Beyond140_Concept_Proposal_JA_v03.pdf` | ฉบับภาษาญี่ปุ่น (ล่าสุด · v01–v02 = ฉบับก่อนหน้า) |
 | `deck/beyond140.html` | ต้นฉบับเดค (ไทย) |
 | `deck/beyond140_en.html` | ต้นฉบับเดค (อังกฤษ) |
 | `deck/beyond140_ja.html` | ต้นฉบับเดค (ญี่ปุ่น) |
